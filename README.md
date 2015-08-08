@@ -5,7 +5,7 @@ Patches to compile OpenWrt Linux on Ralink RT5350-based routers.
 
 __Note__ These patches are no longer relevant, since they have been integrated into OpenWrt trunk since revision 37568 (https://dev.openwrt.org/changeset/37568/).
 
-These patches only apply to kernel < 3.8.x. For more recent kernels, please visit our new repository at https://github.com/kaechele/openwrt!
+These patches only apply to kernel < 3.18.x. For more recent kernels, please visit our new repository at https://github.com/kaechele/openwrt!
 
 ## Introduction
 
@@ -35,12 +35,12 @@ This is achieved using the following code snippet:
      cd trunk
      patch -p0 <../OpenWrt-RT5350/openwrt_add_pm25lq032_flash_support.patch
      patch -p0 <../OpenWrt-RT5350/openwrt_add_rt5350_wlan_support.patch
-     patch -p0 <../OpenWrt-RT5350/openwrt_hame_mpr-a1.patch
+     make package/symlink
      make menuconfig
 
 In the configuration menu, you need to select the following options:
 * Target Ssytem: Ralink RT288x/RT3xxx
-* Subtarget: RT305x based boards
+* Subtarget: RT3x5x/RT5350 based boards
 * Target Profile: HAME MPR-A1
 
 Then proceed to build:
@@ -69,9 +69,3 @@ This patch is platform independent, as these definitions may also be useful to o
 This patch contains the changes required to add support for the RT5350 to the mac80211 driver.
 
 This patch has been developped bi 123serge123 from the OpenWrt forum (https://forum.openwrt.org/viewtopic.php?pid=186493#p186493), adapted by Heffer from the same forum, then ported to the latest mac80211 2013-01-07 by myself.
-
-### openwrt_hame_mpr-a1.patch
-
-This patch contains all the required changes required to define the HAME MPR-A1 profile for OpenWrt.
-
-It is based on previous work by arpunk, arteq, Heffer, p1vo and myself from OpenWrt forum (https://forum.openwrt.org/viewtopic.php?id=37002).
