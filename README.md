@@ -41,7 +41,12 @@ This is achieved using the following code snippet:
 In the configuration menu, you need to select the following options:
 * Target Ssytem: Ralink RT288x/RT3xxx
 * Subtarget: RT3x5x/RT5350 based boards
-* Target Profile: HAME MPR-A1
+* Target Profile: HAME MPR-A1     
+     
+     make package/symlink
+     make menuconfig
+
+* Select Luci for web interface
 
 Then proceed to build:
 
